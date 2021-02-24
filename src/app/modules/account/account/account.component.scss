@@ -1,0 +1,29 @@
+.container-fluid {
+    background-image: url(../../../../assets/images/home/home.png);
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+}
+
+.square {
+    opacity: 80%;
+    background-color: white;
+    margin: {
+        top: 10%;
+        right: 20%;
+        left: 20%;
+    }
+}
+
+@media screen and (max-width: 1280px) {
+    .container-fluid {
+        background-image: none;
+        padding: 0%;
+    }
+
+    .square {
+        margin: 0;
+        padding: 0;
+    }
+}

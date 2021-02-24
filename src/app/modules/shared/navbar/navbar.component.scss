@@ -1,0 +1,57 @@
+.navbar-brand {
+    font-size: 2rem;
+}
+
+.rounded-circle {
+    width: 50px;
+    height: 50px;
+    position: relative;
+}
+
+.bi {
+    color: black;
+}
+
+.form-control {
+    border: none;
+}
+
+.input-group-text {
+    border: none;
+    background-color: transparent;
+}
+
+img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+@media screen and (max-width: 500px) {
+    nav {
+        display: none;
+    }
+
+    .input-group {
+        background-color: #8D557E;
+    }
+
+    .input-group-text {
+        background-color: transparent;
+        border-top-left-radius: 30px;
+        border-bottom-left-radius: 30px;
+    }
+
+    .form-control {
+        background-color: transparent;
+        color: white;
+    }
+
+    .bi-search {
+        color: white;
+    }
+
+    input::placeholder {
+        color: white;
+    }
+}

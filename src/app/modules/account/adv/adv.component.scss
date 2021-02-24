@@ -1,0 +1,40 @@
+.main {
+    padding: 10%;
+    padding-top: 10%;
+    height: 100%;
+}
+
+.semi-square {
+    height: 70px;
+    width: 4rem;
+    border: 3px solid white;
+    border-radius: 15px;
+    position: relative;
+}
+
+.list-group-item {
+    border: none;
+}
+
+.bi {
+    font-size: 1.8rem;
+}
+
+.paragraph {
+    font-size: 1.1rem;
+}
+
+@media screen and (max-width: 350px) {
+    .main, .list-group {
+        padding: 0;
+    }
+
+    .paragraph, .bi {
+        font-size: 0.8rem;
+    }
+
+    .semi-square {
+        height: 3rem;
+        width: 3rem;
+    }
+}

@@ -1,0 +1,83 @@
+/* You can add global styles to this file, and also import other style files */
+@import './variables';
+@import "~bootstrap/scss/bootstrap.scss";
+@import "~bootstrap-icons/font/bootstrap-icons.css";
+@font-face {
+    font-family: 'Segoe UI Regular';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Segoe UI Regular'), url('assets/fonts/Segoe UI.woff') format('woff');
+}
+
+body, html { 
+    height: 100% !important;
+    font-family: 'Segoe UI Regular';
+    color: $grey-1;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+    color: $grey-1;
+}
+
+.container-fluid {
+    height: 100%;
+}
+
+.h1 {
+    color: $purple;
+}
+
+.form-control {
+    border-radius: 30px;
+}
+
+.purple {
+    color: $purple;
+}
+
+.grey-1 {
+    color: $grey-1;
+}
+
+.grey-2 {
+    color: $grey-2;
+}
+
+.grey-3 {
+    color: $grey-3;
+}
+
+.white {
+    color: white;
+}
+
+.bk-purple {
+    background-color: $purple;
+    color: white;
+}
+
+.purple-btn, .purple-btn::after, .purple-btn::before, .purple-btn::selection, .purple-btn:hover {
+    color: white;
+    background-color: $purple;
+    box-shadow: 1px solid $grey-2;
+    border-radius: 30px;
+}
+
+.white-btn {
+    color: $purple;
+    background-color: white;
+    border: none;
+    box-shadow: inset;
+    border-radius: 30px;
+}
+
+.rounded-circle {
+    background-color: $grey-3;
+}
+
+.center {
+    right: 50%;
+    bottom: 50%;
+    transform: translate(50%,50%);
+    position: absolute;
+}
