@@ -32,16 +32,16 @@ export class AuthService {
   Login(user: IUser) {
     return this.apiCaller.post<IAuthRes>(this.baseUrl + 'login', user).pipe(
       tap(res => {
-          localStorage.setItem('access_token', res.value);
-          localStorage.setItem('expirationDate', JSON.stringify(this.jwtHelper.getTokenExpirationDate(res.value)));
+          localStorage.setItem('access_token', res.token);
+          localStorage.setItem('expirationDate', JSON.stringify(this.jwtHelper.getTokenExpirationDate(res.token)));
     }));
   }
 
   Register(user: IUser) {
     return this.apiCaller.post<IAuthRes>(this.baseUrl + 'register', user).pipe(
       tap(res => {
-          localStorage.setItem('access_token', res.value);
-          localStorage.setItem('expirationDate', JSON.stringify(this.jwtHelper.getTokenExpirationDate(res.value)));
+          localStorage.setItem('access_token', res.token);
+          localStorage.setItem('expirationDate', JSON.stringify(this.jwtHelper.getTokenExpirationDate(res.token)));
           console.log(res);
     }));
   }

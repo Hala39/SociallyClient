@@ -9,8 +9,11 @@
         <div class="row d-flex justify-content-center">
             <div class="input-group mb-1">
                 <input type="email" class="form-control shadow-sm" placeholder="Email" [formControl]="email">
-                <span class="input-group-text">
+                <span class="input-group-text" *ngIf="email.invalid">
                   <fa-icon [icon]="faUser"></fa-icon>
+                </span>
+                <span class="input-group-text" *ngIf="email.valid">
+                  <fa-icon [icon]="faUserCheck"></fa-icon>
                 </span>
             </div>
             <div *ngIf="email.dirty || email.touched" class="row col-12 d-flex justify-content-center pr-3 warn">
@@ -27,8 +30,13 @@
             <div class="input-group">
                 <input [type]="hide ? 'password' : 'text'" class="form-control shadow-sm" placeholder="Password" [formControl]="password">
                 <span class="input-group-text" (click)="showPassword()">
-                  <fa-icon *ngIf="hide" [icon]="faLock"></fa-icon>
-                  <fa-icon *ngIf="!hide" [icon]="faUnlock"></fa-icon>
+                  <span *ngIf="password.invalid">
+                    <fa-icon *ngIf="hide" [icon]="faLock"></fa-icon>
+                    <fa-icon *ngIf="!hide" [icon]="faUnlock"></fa-icon>
+                  </span>
+                  <span *ngIf="password.valid">
+                    <fa-icon [icon]="faCheck"></fa-icon>
+                  </span>
                 </span>
             </div>
             <div *ngIf="password.dirty || password.touched" class="row col-12 d-flex justify-content-center mt-1 warn">

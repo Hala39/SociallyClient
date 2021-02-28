@@ -71,11 +71,7 @@ export class RegisterComponent implements OnInit {
      updateOn: 'blur'
   });
 
-  user: IUser = {
-    email: this.email.value,
-    password: this.password.value,
-    username: this.username.value
-  }
+  user: IUser;
 
   Validate() {
     this.form = this.fb.group({
@@ -87,11 +83,14 @@ export class RegisterComponent implements OnInit {
 
 
   Register() {
-    alert("yes");
+    this.user = {
+      email: this.email.value,
+      password: this.password.value,
+      username: this.username.value
+    };
     if(this.form.valid) {
       this.auth.Register(this.user);
-      console.log(this.form);
-      console.log(this.user);
+      this.form.reset();
     } else {
       this.Up();
     }

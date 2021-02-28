@@ -5,7 +5,7 @@ export interface IUser {
 }
 
 export interface IAuthRes {
-    value: string,
-    isSuccess: boolean,
-    message: string
+    token: string,
+    image: string,
+    username: string
 }
