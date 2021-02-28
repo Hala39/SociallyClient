@@ -1,14 +1,14 @@
-<div class="row main bk-purple">
+<div class="row main bk-purple mb-0">
     <div class="col-12">
         <ul class="list-group">
             <li class="list-group-item bk-purple" *ngFor="let item of items">
                 <div class="row">
-                    <div class="col-lg-3 col-4">
+                    <div class="col-sm-3 col-4">
                         <div class="semi-square d-flex justify-content-center">
-                            <div class="center bi bi-{{item.icon}}"></div>
+                            <fa-icon class="center" [icon]="item.icon"></fa-icon>
                         </div>
                     </div>
-                    <div class="col-lg-9 col-8">
+                    <div class="col-sm-9 col-8">
                         <div class=" paragraph">{{item.paragraph}}</div>       
                     </div>
                 </div>

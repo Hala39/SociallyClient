@@ -1,0 +1,90 @@
+
+  <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+    Login
+</button> -->
+<span type="button" data-toggle="modal" data-target="#exampleModal" tabindex="-1" role="dialog" class="grey-2">Register <fa-icon class="grey-2 ml-2" [icon]="faUserPlus"></fa-icon></span>
+  <!-- Modal -->
+<div class="modal" id="exampleModal" tabindex="1" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+              <div class="row d-flex justify-content-center mb-3">
+                <h4 class="purple">Registration</h4><fa-icon [icon]="faUserPlus" class="pl-2 purple" style="font-size: 1.5rem;"></fa-icon>
+              </div>
+              <hr>
+              <form [formGroup]="form" (ngSubmit)="Register()">
+                <div class="row d-flex justify-content-center py-3">
+                  <div class="input-group mb-1"> 
+                    <input type="text" class="form-control" placeholder="Username" [formControl]="username">
+                    <span class="input-group-text">
+                      <span *ngIf="username.invalid">
+                        <fa-icon [icon]="faUser"></fa-icon>
+                      </span>
+                      <span *ngIf="username.valid">
+                        <fa-icon [icon]="faUserCheck"></fa-icon>
+                      </span>
+                    </span>
+                  </div>
+                  <div *ngIf="username.dirty || username.touched" class="row col-12 d-flex justify-content-center warn">
+                    <span *ngIf="username.hasError('required')">
+                      Username is <strong>required</strong>!
+                    </span>
+                    <span *ngIf="username.errors?.usernameTaken">
+                      Username is <strong>Taken</strong>!
+                    </span>
+                  </div>
+                  <div class="input-group mb-1 pt-1">
+                      <input type="email" class="form-control" placeholder="Email" [formControl]="email">
+                      <span class="input-group-text">
+                        <span *ngIf="email.invalid">
+                          <fa-icon [icon]="faUser"></fa-icon>
+                        </span>
+                        <span *ngIf="email.valid">
+                          <fa-icon [icon]="faUserCheck"></fa-icon>
+                        </span>
+                      </span>
+                  </div>
+                  <div *ngIf="email.dirty || email.touched" class="row col-12 d-flex justify-content-center warn">
+                      <span *ngIf="email.hasError('email') && !email.hasError('required')">
+                        Please enter a <strong>valid</strong> email address!
+                      </span>
+                      <span *ngIf="email.hasError('required')">
+                        Email is <strong>required</strong>!
+                      </span>
+                      <span *ngIf="email.errors?.emailTaken">
+                        Email is <strong>Taken</strong>!
+                      </span>
+                  </div>
+                  <div class="input-group pt-1">
+                      <input [type]="hide ? 'password' : 'text'" class="form-control" placeholder="Password" [formControl]="password">
+                      <span class="input-group-text" (click)="ShowPassword()">
+                        <span *ngIf="password.invalid">
+                          <fa-icon *ngIf="hide" [icon]="faLock"></fa-icon>
+                          <fa-icon *ngIf="!hide" [icon]="faUnlock"></fa-icon>
+                        </span>
+                        <span *ngIf="password.valid">
+                          <fa-icon [icon]="faCheck"></fa-icon>
+                        </span>
+                      </span>
+                  </div>
+                  <div *ngIf="password.dirty || password.touched" class="row col-12 d-flex justify-content-center pr-3 mt-1 warn">
+                    <span *ngIf="password.hasError('pattern') && !password.hasError('required')">
+                      Enter at least 6 characters, one uppercase and one lowercase!
+                    </span>
+                    <span *ngIf="password.hasError('required')">
+                      Password is <strong>required</strong>!
+                    </span>
+                    <span *ngIf="password.errors?.wrongPass">
+                      <strong>Wrong password</strong>!
+                    </span>
+                  </div>  
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer justify-content-center">
+                <button type="submit" class="btn purple-btn" (click)="Register()">Register</button>
+            </div>
+          </div>
+    </div>
+</div>
+

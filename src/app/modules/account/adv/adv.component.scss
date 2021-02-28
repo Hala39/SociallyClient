@@ -1,12 +1,12 @@
 .main {
-    padding: 10%;
-    padding-top: 10%;
     height: 100%;
+    padding-bottom: 10%;
+    padding-top: 15%;
 }
 
 .semi-square {
     height: 70px;
-    width: 4rem;
+    width: 100%;
     border: 3px solid white;
     border-radius: 15px;
     position: relative;
@@ -16,25 +16,24 @@
     border: none;
 }
 
-.bi {
-    font-size: 1.8rem;
-}
-
 .paragraph {
     font-size: 1.1rem;
 }
 
 @media screen and (max-width: 350px) {
-    .main, .list-group {
-        padding: 0;
+    .paragraph {
+        font-size: 0.6rem;
     }
 
-    .paragraph, .bi {
-        font-size: 0.8rem;
+    .main {
+        padding : {
+            left: 0;
+            right: 0;
+        }
     }
 
     .semi-square {
-        height: 3rem;
-        width: 3rem;
+        height: 2.5rem;
+        width: 2.5rem;
     }
 }

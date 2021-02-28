@@ -2,24 +2,10 @@
     font-weight: bold;
 }
 
-.nav {
-    padding-top: 3%;
-}
-
 .nav-link {
     color: white;
 }
 
 .nav-item {
     margin-left: 3rem;
-}
-
-@media screen and (max-width: 900px) {
-    .nav {
-        background-color: darkgray;
-    }
-
-    .nav-item {
-        margin-left: 0.5rem;
-    }
 }

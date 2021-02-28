@@ -1,5 +1,8 @@
-.container-fluid {
+.cover {
     background-image: url(../../../../assets/images/home/home.png);
+    background-repeat: repeat;
+    background-size: 100% 100%;
+    background-size: cover;
 }
 
 .navbar-brand {
@@ -7,23 +10,21 @@
 }
 
 .square {
-    opacity: 80%;
+    opacity: 90%;
     background-color: white;
     margin: {
         top: 10%;
-        right: 20%;
-        left: 20%;
+        right: 12%;
+        left: 12%;
+        bottom: 0;
     }
+    padding: 0%;
 }
 
-@media screen and (max-width: 1280px) {
-    .container-fluid {
-        background-image: none;
-        padding: 0%;
-    }
-
+@media screen and (max-width: 575px) {
     .square {
-        margin: 0;
-        padding: 0;
+        margin: 0%;
+        padding: 0%;
+        width: 90%;
     }
 }

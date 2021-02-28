@@ -1,25 +1,29 @@
-<div class="container-fluid">
-    <nav class="navbar">
-        <div class="container-fluid">
-           <span class="navbar-brand mb-0 h1 grey-2">Socially</span>
-           <span class="grey-2">Register <i class="bi bi-person-plus-fill grey-2 ml-2"></i></span>
+<div class="cover">
+    <div class="container-fluid">
+        <nav class="navbar pt-2">
+            <div class="container-fluid">
+               <span class="navbar-brand mb-0 h1 grey-2">Socially</span>
+            <app-register style="z-index: 3;"></app-register>
+            </div>
+        </nav>
+        <div class="d-flex justify-content-center mt-2 p-0" >
+            <div class="row square">
+                <div class="col-12">
+                    <div class="row">
+                        <div class="col-lg-6 col-12">
+                         <app-adv></app-adv>
+                        </div>
+                        <div class="col-lg-6 col-12">
+                         <app-login></app-login>
+                        </div>
+                    </div>
+                </div>
+             </div>
         </div>
-    </nav>
-    <div class="row d-flex justify-content-center square">
-       <div class="col-12">
-           <div class="row">
-               <div class="col-sm-6 col-12">
-                <app-adv></app-adv>
-               </div>
-               <div class="col-sm-6 col-12">
-                <app-login></app-login>
-               </div>
-           </div>
-       </div>
-    </div>
-    <div class="row">
-        <div class="col-12">
-            <app-links></app-links>
+        <div class="row">
+            <div class="col-12">
+                <app-links></app-links>
+            </div>
         </div>
     </div>
 </div>
