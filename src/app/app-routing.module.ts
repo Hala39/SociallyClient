@@ -1,3 +1,6 @@
+import { ServerErrorComponent } from './modules/misc/server-error/server-error.component';
+import { NotFoundComponent } from './modules/misc/not-found/not-found.component';
+import { AuthGuard } from './modules/account/auth.guard';
 import { RegisterComponent } from './modules/account/register/register.component';
 import { ChatComponent } from './modules/chat/chat/chat.component';
 import { ProfileComponent } from './modules/profile/profile/profile.component';
@@ -9,11 +12,21 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   { path: '', component: AccountComponent},
-  { path: 'register', component: RegisterComponent},
-  { path: 'feed', component: FeedComponent},
-  { path: 'personal-profile', component: PersonalProfileComponent},
-  { path: 'profile', component: ProfileComponent},
-  { path: 'chat', component: ChatComponent}
+  // {
+  //   path: '',
+  //   runGuardsAndResolvers: 'always',
+  //   canActivate: [AuthGuard],
+  //   children: [
+      { path: 'register', component: RegisterComponent},
+      { path: 'feed', component: FeedComponent},
+      { path: 'personal-profile', component: PersonalProfileComponent},
+      { path: 'profile', component: ProfileComponent},
+      { path: 'chat', component: ChatComponent},
+  //   ]
+  // },
+  { path: 'not-found', component: NotFoundComponent},
+  { path: 'server-error', component: ServerErrorComponent},
+  { path: '**', component: AccountComponent, pathMatch: 'full'}
 ];
 
 @NgModule({

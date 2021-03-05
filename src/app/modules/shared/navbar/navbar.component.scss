@@ -6,6 +6,7 @@
     width: 50px;
     height: 50px;
     position: relative;
+    border: 0.2px solid rgb(145, 144, 144);
 }
 
 .bi {
@@ -27,31 +28,41 @@ img {
     border-radius: 50%;
 }
 
-@media screen and (max-width: 500px) {
+.hidden-hr {
+    display: none;
+}
+
+@media screen and (max-width: 767px) {
+    .hidden-hr {
+        display: block;
+    }
+
+    img, .rounded-circle {
+        width: 40px;
+        height: 40px;
+    }
+
+    .navbar-brand {
+        font-size: 1rem;
+        padding: 0%;
+        margin: 0%;
+        display: none;
+    }
+
     nav {
         display: none;
     }
 
-    .input-group {
-        background-color: #8D557E;
-    }
-
     .input-group-text {
-        background-color: transparent;
-        border-top-left-radius: 30px;
-        border-bottom-left-radius: 30px;
+        padding: 0%;
+        margin: 0;
     }
 
-    .form-control {
-        background-color: transparent;
-        color: white;
-    }
+}
 
-    .bi-search {
-        color: white;
-    }
-
-    input::placeholder {
-        color: white;
+@media screen and (max-width: 318px) {
+    img, .rounded-circle {
+        width: 30px;
+        height: 30px;
     }
 }

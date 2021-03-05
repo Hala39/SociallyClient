@@ -1,4 +1,5 @@
-import { HttpClientModule } from '@angular/common/http';
+import { AuthGuard } from './modules/account/auth.guard';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FeaturedModule } from './modules/featured/featured.module';
 import { NgModule } from '@angular/core';
@@ -29,7 +30,10 @@ export function tokenGetter() {
       },
     }),
   ],
-  providers: [],
+  providers: [
+    AuthGuard
+    // {provide: HTTP_INTERCEPTORS, useClass: Error, multi: true} 
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

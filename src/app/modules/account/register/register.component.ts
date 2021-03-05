@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { faCheck, faLock, faUser, faUserCheck, faUserPlus, faUnlock } from '@fortawesome/free-solid-svg-icons';
 import { AuthService } from './../account.service';
 import { Component, OnInit } from '@angular/core';
@@ -22,7 +23,7 @@ export class RegisterComponent implements OnInit {
   form: FormGroup;
   hide = true;
 
-  constructor(private fb: FormBuilder, private auth: AuthService) { }
+  constructor(private fb: FormBuilder, private auth: AuthService, private router: Router) { }
 
   ngOnInit(): void {
     this.Validate();
@@ -90,7 +91,7 @@ export class RegisterComponent implements OnInit {
     };
     if(this.form.valid) {
       this.auth.Register(this.user);
-      this.form.reset();
+      this.router.navigateByUrl('/personal-profile');
     } else {
       this.Up();
     }
