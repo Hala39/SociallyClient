@@ -1,45 +1,37 @@
 <div class="py-2 main">
     <div class="row">
-        <div class="col-md-6 col-12">
+        <div class="col-md-6 col-12"  *ngFor="let info of infos">
             <div class="card shadow-sm py-3 mb-2 info">
                 <div class="row mb-1">
-                    <div class="col-sm-1 col-2">
-                        <fa-icon [icon]="faHouseUser"></fa-icon>
+                    <div class="col-12 d-flex justify-content-end"  *ngIf="myProfile">
+                        <strong style="text-decoration: underline; font-size: small;"><a (click)="edit(info.text, info.title)" data-toggle="modal" data-target="#myModal">Edit</a></strong>    
                     </div>
-                    <div class="col-sm-11 col-10">
-                        <span>Lives in New York</span>
+                    <div class="col-sm-2 col-2">
+                        <fa-icon [icon]=info.icon></fa-icon>
                     </div>
-                </div>
-                <div class="row mb-1">
-                    <div class="col-sm-1 col-2">
-                        <fa-icon [icon]="faBriefCase"></fa-icon>
-                    </div>
-                    <div class="col-sm-11 col-10">
-                        <span>Works at Tech Company</span>
-                    </div>
-                </div>
-                <div class="row mb-1">
-                    <div class="col-sm-1 col-2">
-                        <fa-icon [icon]="faGraduationCap"></fa-icon>
-                    </div>
-                    <div class="col-sm-11 col-10">
-                        <span>Studied at Harvard University</span>
+                    <div class="col-sm-10 col-10">
+                        <span>
+                            <span>{{info.text}}</span>
+                        </span>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="col-md-6 col-12">
-            <div class="card shadow-sm px-5 py-2 mb-2">
-                <div class="row">
-                    <fa-icon [icon]="faQuoteLeft"></fa-icon>
-                </div>
-                <div class="row pb-1">
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Soluta deserunt ex adipisci nam laudantium natus, 
-                    incidunt voluptas saepe explicabo.
-                </div>
-                <div class="row d-flex justify-content-end">
-                    <fa-icon [icon]="faQuoteRight"></fa-icon>
-                </div>
+    </div>
+</div> 
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <h4 style="text-align: center;">Edit your {{title}}</h4>
+                <form class="px-5 py-2" [formGroup]="form">
+                    <input type="text" class="form-control" value="{{text}}" [formControl]="value">
+                </form>
+            </div>
+            <div class="modal-footer d-flex justify-content-center">
+              <button type="submit" class="btn purple-btn" data-dismiss="modal" (click)="saveChanges(title)" [disabled]="form.invalid">Save changes</button>
+              <button type="button" class="btn white-btn" data-dismiss="modal">Close</button>
             </div>
         </div>
     </div>

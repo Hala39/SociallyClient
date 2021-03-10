@@ -10,7 +10,7 @@
     <div class="col-md-2 col-12 p-0 mb-0 pt-2">
         <div class="px-3 d-flex justify-content-center input-group">
             <span class="input-group-text">
-              <i class="bi bi-search"></i>
+              <fa-icon [icon]="faSearch" class="center"></fa-icon>
             </span>
             <input type="text" class="form-control" placeholder="Search socially..">
         </div>
@@ -21,26 +21,26 @@
             <li class="nav-item">
                 <a class="nav-link">
                   <div class="rounded-circle">
-                      <i class="bi bi-pin center"></i>
+                      <fa-icon [icon]="faThumbTack" class="center"></fa-icon>
                   </div>
                 </a>
             </li>
             <li class="nav-item">
               <a class="nav-link">
                 <div class="rounded-circle">
-                    <i class="bi bi-bell center"></i>
+                  <fa-icon [icon]="farBell" class="center"></fa-icon>
                 </div>
               </a>
             </li>
             <li class="nav-item">
               <a class="nav-link">
                 <div class="rounded-circle">
-                    <i class="bi bi-chat-dots center"></i>
+                  <fa-icon [icon]="farCommentDots" class="center"></fa-icon>
                 </div>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link">
+              <a class="nav-link" [routerLink]="['/personal-profile']">
                 <div class="rounded-circle">
                     <img src="assets/images/pp.jpg" alt="">
                 </div>

@@ -2,14 +2,14 @@
     <div class="row pt-1">
         <div class="col-6">
             <div class="row pl-2 ml-1">
-                <div class="col-lg-2 col-12">
+                <div class="col-lg-1 col-12">
                     <img src="assets/images/user.jpg" alt="" class="pp">
                 </div>
                 <div class="col-lg-7 col-12 ml-1">
                     <div class="row pt-2 ml-3">
                         <div class="col-12">
                             <div class="row">
-                               <strong> Hala Taleb</strong>
+                               <strong [innerText]="userName"></strong>
                             </div>
                             <div class="row time">
                                 @02:45 am
@@ -21,7 +21,7 @@
         </div>
         <div class="col-6 d-flex justify-content-end">
             <button class="btn purple">
-                <i class="bi bi-check purple"></i>
+                <fa-icon [icon]="faCheck"></fa-icon>
                 Following
             </button>
         </div>

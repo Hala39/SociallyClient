@@ -19,9 +19,20 @@
     <div class="row d-flex justify-content-end pt-4 mr-5 pr-2">
         <app-post></app-post>
     </div>
-    <app-bio></app-bio>
+    <app-bio
+    [myProfile]="true"
+    [infos] = "[
+    { icon: faHouseUser, title: 'Address', text: user.address},
+    { icon: faGraduationCap, title: 'Education', text: user.education},
+    { icon: faBriefCase, title: 'Work', text: user.work},
+    { icon: faQuoteLeft, title: 'Bio', text: user.bio}
+    ]"
+    ></app-bio>
 
     <div class="row d-flex justify-content-center pb-1">
-        <app-post-card></app-post-card>
+        <app-post-card
+        [userName]="user.userName"
+        ></app-post-card>
     </div>
 </div>
+

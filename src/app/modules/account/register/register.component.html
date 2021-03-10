@@ -1,7 +1,4 @@
 
-  <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-    Login
-</button> -->
 <span type="button" data-toggle="modal" data-target="#exampleModal" tabindex="-1" role="dialog" class="grey-2">Register <fa-icon class="grey-2 ml-2" [icon]="faUserPlus"></fa-icon></span>
   <!-- Modal -->
 <div class="modal" id="exampleModal" tabindex="1" role="dialog">
@@ -82,7 +79,7 @@
               </form>
             </div>
             <div class="modal-footer justify-content-center">
-                <button type="submit" class="btn purple-btn" (click)="Register()">Register</button>
+                <button type="submit" class="btn purple-btn" data-dismiss="modal" (click)="Register()">Register</button>
             </div>
           </div>
     </div>

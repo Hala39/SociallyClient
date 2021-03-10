@@ -68,7 +68,7 @@ h1, h2, h3, h4, h5, h6, p {
 .white-btn {
     color: $purple;
     background-color: white;
-    border: none;
+    border: 0.5px solid $purple;
     box-shadow: inset;
     border-radius: 30px;
 }

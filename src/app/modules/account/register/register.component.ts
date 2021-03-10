@@ -1,6 +1,6 @@
 import { Router } from '@angular/router';
 import { faCheck, faLock, faUser, faUserCheck, faUserPlus, faUnlock } from '@fortawesome/free-solid-svg-icons';
-import { AuthService } from './../account.service';
+import { AccountService } from '../../../services/account.service';
 import { Component, OnInit } from '@angular/core';
 import { AsyncValidatorFn, FormControl, FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { timer, of } from 'rxjs';
@@ -23,7 +23,7 @@ export class RegisterComponent implements OnInit {
   form: FormGroup;
   hide = true;
 
-  constructor(private fb: FormBuilder, private auth: AuthService, private router: Router) { }
+  constructor(private fb: FormBuilder, private auth: AccountService, private router: Router) { }
 
   ngOnInit(): void {
     this.Validate();
@@ -87,7 +87,7 @@ export class RegisterComponent implements OnInit {
     this.user = {
       email: this.email.value,
       password: this.password.value,
-      username: this.username.value
+      userName: this.username.value
     };
     if(this.form.valid) {
       this.auth.Register(this.user);

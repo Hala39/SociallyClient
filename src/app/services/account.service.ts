@@ -2,15 +2,18 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { JwtHelperService } from '@auth0/angular-jwt';
-import { tap } from 'rxjs/operators';
-import { IAuthRes, IUser } from 'src/app/models/User';
+import { map } from 'rxjs/operators';
+import { IUser } from 'src/app/models/User';
+import { ReplaySubject } from 'rxjs';
 
 
 @Injectable({
   providedIn: 'root'
 })
-export class AuthService {
+export class AccountService {
   baseUrl = environment.apiUrl + 'account/';
+  private currentUserSource = new ReplaySubject<IUser>(1);
+  currentUser$ = this.currentUserSource.asObservable();
 
   constructor(private apiCaller: HttpClient, private jwtHelper: JwtHelperService) { }
 
@@ -30,18 +33,27 @@ export class AuthService {
   }
 
   Login(user: IUser) {
-    return this.apiCaller.post<IAuthRes>(this.baseUrl + 'login', user).pipe(
-      tap(res => {
-          localStorage.setItem('access_token', res.token);
-          localStorage.setItem('expirationDate', JSON.stringify(this.jwtHelper.getTokenExpirationDate(res.token)));
+    return this.apiCaller.post<IUser>(this.baseUrl + 'login', user).pipe(
+      map((res: IUser) => {
+          if(res) {
+            localStorage.setItem('access_token', res.token);
+            localStorage.setItem('expirationDate', JSON.stringify(this.jwtHelper.getTokenExpirationDate(res.token)));
+            localStorage.setItem('user', JSON.stringify(res));
+            this.currentUserSource.next(res);
+            console.log(res);
+          } else {
+            console.log("what the fuck");
+          }
     }));
   }
 
   Register(user: IUser) {
-    return this.apiCaller.post<IAuthRes>(this.baseUrl + 'register', user).pipe(
-      tap(res => {
+    return this.apiCaller.post<IUser>(this.baseUrl + 'register', user).pipe(
+      map(res => {
           localStorage.setItem('access_token', res.token);
           localStorage.setItem('expirationDate', JSON.stringify(this.jwtHelper.getTokenExpirationDate(res.token)));
+          localStorage.setItem('user', JSON.stringify(res));
+          this.currentUserSource.next(res);
           console.log(res);
     }));
   }

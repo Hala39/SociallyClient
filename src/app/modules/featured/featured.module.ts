@@ -1,3 +1,4 @@
+import { MiscModule } from './../misc/msc.module';
 import { ChatModule } from './../chat/chat.module';
 import { ProfileModule } from './../profile/profile.module';
 import { PersonalProfileModule } from './../personal-profile/personal-profile.module';
@@ -18,7 +19,8 @@ import { CommonModule } from '@angular/common';
     SharedModule,
     PersonalProfileModule,
     ProfileModule,
-    ChatModule
+    ChatModule,
+    MiscModule
   ],
   exports: [
     AccountModule,
@@ -26,7 +28,8 @@ import { CommonModule } from '@angular/common';
     SharedModule,
     PersonalProfileModule,
     ProfileModule,
-    ChatModule
+    ChatModule,
+    MiscModule
   ]
 })
 export class FeaturedModule { }

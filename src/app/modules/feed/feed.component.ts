@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { faRss } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-feed',
@@ -7,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FeedComponent implements OnInit {
 
+  faRss = faRss;
   constructor() { }
 
   ngOnInit(): void {

@@ -1,5 +1,5 @@
 import { Router } from '@angular/router';
-import { AuthService } from './../account.service';
+import { AccountService } from '../../../services/account.service';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators, AsyncValidatorFn, FormGroup, FormBuilder, ControlContainer, ValidationErrors } from '@angular/forms';
 import { timer, of } from 'rxjs';
@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit {
     this.hide = !this.hide;
   }
 
-  constructor(private auth: AuthService, private fb: FormBuilder, private router: Router) { }
+  constructor(private auth: AccountService, private fb: FormBuilder, private router: Router) { }
 
   ngOnInit(): void {
     this.Up();
@@ -79,7 +79,9 @@ export class LoginComponent implements OnInit {
       password: this.password.value
     }
     if(this.form.valid) {
-      this.auth.Login(this.user);
+      this.auth.Login(this.user).subscribe(res => {
+        console.log(res);
+      });
       this.router.navigateByUrl('/feed');
     } else {
       this.Up();

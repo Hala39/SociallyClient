@@ -1,6 +1,8 @@
+import { AuthInterceptor } from './interceptors/auth.interceptor';
+import { RouterModule } from '@angular/router';
 import { AuthGuard } from './modules/account/auth.guard';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FeaturedModule } from './modules/featured/featured.module';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -15,24 +17,26 @@ export function tokenGetter() {
 @NgModule({
   declarations: [
     AppComponent
-  ],
+    ],
   imports: [
+    AppRoutingModule,
     BrowserModule,
     ReactiveFormsModule,
+    FormsModule,
     HttpClientModule,
-    AppRoutingModule,
+    RouterModule,
     FeaturedModule,
     JwtModule.forRoot({
       config: {
         tokenGetter: tokenGetter,
-        allowedDomains: ["example.com"],
+        allowedDomains: [""],
         disallowedRoutes: ["http://example.com/examplebadroute/"],
       },
     }),
   ],
   providers: [
+    {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},
     AuthGuard
-    // {provide: HTTP_INTERCEPTORS, useClass: Error, multi: true} 
   ],
   bootstrap: [AppComponent]
 })

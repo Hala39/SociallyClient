@@ -1,3 +1,5 @@
+import { faSearch, faThumbtack } from '@fortawesome/free-solid-svg-icons';
+import { faBell as farBell , faCommentDots as farCommentDots} from '@fortawesome/free-regular-svg-icons'
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,6 +9,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
+  faSearch = faSearch;
+  farBell = farBell;
+  farCommentDots = farCommentDots;
+  faThumbTack = faThumbtack;
   constructor() { }
 
   ngOnInit(): void {

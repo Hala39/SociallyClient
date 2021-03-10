@@ -1,3 +1,4 @@
+import { SuccessComponent } from './modules/misc/success/success.component';
 import { ServerErrorComponent } from './modules/misc/server-error/server-error.component';
 import { NotFoundComponent } from './modules/misc/not-found/not-found.component';
 import { AuthGuard } from './modules/account/auth.guard';
@@ -26,6 +27,7 @@ const routes: Routes = [
   // },
   { path: 'not-found', component: NotFoundComponent},
   { path: 'server-error', component: ServerErrorComponent},
+  { path: 'success', component: SuccessComponent},
   { path: '**', component: AccountComponent, pathMatch: 'full'}
 ];
 

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { faCheck } from '@fortawesome/free-solid-svg-icons';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-post-card',
@@ -7,6 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PostCardComponent implements OnInit {
 
+  faCheck = faCheck;
+
+  @Input() userName: string;
   constructor() { }
 
   ngOnInit(): void {

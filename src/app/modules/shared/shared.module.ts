@@ -1,3 +1,5 @@
+import { RouterModule } from '@angular/router';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ActionsComponent } from './actions/actions.component';
 import { NgModule } from '@angular/core';
@@ -13,13 +15,17 @@ import { BioComponent } from './bio/bio.component';
   declarations: [NavbarComponent, PostComponent, PostCardComponent, ActionsComponent, BioComponent],
   imports: [
     CommonModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    ReactiveFormsModule,
+    FormsModule,
+    RouterModule
   ],
   exports: [
     NavbarComponent,
     PostComponent,
     PostCardComponent,
     ActionsComponent,
+    RouterModule,
     BioComponent
   ]
 })
