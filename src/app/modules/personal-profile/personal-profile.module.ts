@@ -4,13 +4,14 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PersonalProfileComponent } from './personal-profile/personal-profile.component';
 import { Routes } from '@angular/router';
+import { UploadPhotoComponent } from './upload-photo/upload-photo.component';
 
 const routes: Routes = [
   {path: '', component: PersonalProfileComponent}
 ]
 
 @NgModule({
-  declarations: [PersonalProfileComponent],
+  declarations: [PersonalProfileComponent, UploadPhotoComponent],
   imports: [
     CommonModule,
     SharedModule

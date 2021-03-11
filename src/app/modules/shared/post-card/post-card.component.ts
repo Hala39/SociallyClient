@@ -11,6 +11,7 @@ export class PostCardComponent implements OnInit {
   faCheck = faCheck;
 
   @Input() userName: string;
+  @Input() myProfile: boolean;
   constructor() { }
 
   ngOnInit(): void {

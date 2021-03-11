@@ -1,8 +1,10 @@
 .cover {
     background-image: url(../../../../assets/images/home/home.png);
+    height: 100%;
     background-repeat: repeat;
     background-size: 100% 100%;
     background-size: cover;
+    z-index: 2;
 }
 
 .navbar-brand {

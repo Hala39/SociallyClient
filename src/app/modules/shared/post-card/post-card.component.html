@@ -1,12 +1,12 @@
 <div class="card px-2 py-2 mb-5 shadow-sm">
     <div class="row pt-1">
         <div class="col-6">
-            <div class="row pl-2 ml-1">
-                <div class="col-lg-1 col-12">
+            <div class="row pl-2">
+                <div class="col-lg-1 col-4">
                     <img src="assets/images/user.jpg" alt="" class="pp">
                 </div>
-                <div class="col-lg-7 col-12 ml-1">
-                    <div class="row pt-2 ml-3">
+                <div class="col-lg-7 col-2">
+                    <div class="row pt-2 ml-4">
                         <div class="col-12">
                             <div class="row">
                                <strong [innerText]="userName"></strong>
@@ -20,10 +20,11 @@
             </div>
         </div>
         <div class="col-6 d-flex justify-content-end">
-            <button class="btn purple">
+            <button class="btn purple" *ngIf="!myProfile">
                 <fa-icon [icon]="faCheck"></fa-icon>
                 Following
             </button>
+            <a style="font-size: small; text-decoration: underline;" class="pr-1 grey-1"><strong>Edit</strong></a>
         </div>
     </div>
     <div class="row pt-3 px-4">

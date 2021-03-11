@@ -8,11 +8,12 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { PostComponent } from './post/post.component';
 import { PostCardComponent } from './post-card/post-card.component';
 import { BioComponent } from './bio/bio.component';
+import { AddPostComponent } from './add-post/add-post.component';
 
 
 
 @NgModule({
-  declarations: [NavbarComponent, PostComponent, PostCardComponent, ActionsComponent, BioComponent],
+  declarations: [NavbarComponent, PostComponent, PostCardComponent, ActionsComponent, BioComponent, AddPostComponent],
   imports: [
     CommonModule,
     FontAwesomeModule,

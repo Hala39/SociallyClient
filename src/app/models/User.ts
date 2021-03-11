@@ -12,15 +12,8 @@ export interface IUser {
     work?: string,
     bio?: string,
     address?: string
-}
-export interface IMember {
-    education?: string,
-    work?: string,
-    address?: string,
-    bio?: string,
     photos?: IPhoto[]
 }
-
 export interface IPhoto {
     id: number,
     url: string,
