@@ -1,3 +1,4 @@
+import { FileUploadModule } from 'ng2-file-upload';
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -8,17 +9,16 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { PostComponent } from './post/post.component';
 import { PostCardComponent } from './post-card/post-card.component';
 import { BioComponent } from './bio/bio.component';
-import { AddPostComponent } from './add-post/add-post.component';
-
 
 
 @NgModule({
-  declarations: [NavbarComponent, PostComponent, PostCardComponent, ActionsComponent, BioComponent, AddPostComponent],
+  declarations: [NavbarComponent, PostComponent, PostCardComponent, ActionsComponent, BioComponent],
   imports: [
     CommonModule,
     FontAwesomeModule,
     ReactiveFormsModule,
     FormsModule,
+    FileUploadModule,
     RouterModule
   ],
   exports: [

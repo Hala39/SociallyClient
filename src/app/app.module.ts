@@ -1,3 +1,4 @@
+import { FileUploadModule } from 'ng2-file-upload';
 import { NgxSpinnerModule } from 'ngx-spinner';
 // import { ErrorInterceptor } from './interceptors/error.interceptor';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
@@ -31,6 +32,7 @@ export function tokenGetter() {
     RouterModule,
     FeaturedModule,
     NgxSpinnerModule,
+    FileUploadModule,
     JwtModule.forRoot({
       config: {
         tokenGetter: tokenGetter,

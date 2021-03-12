@@ -40,9 +40,13 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" [routerLink]="['/personal-profile']">
-                <div class="rounded-circle">
-                    <img src="assets/images/pp.jpg" alt="">
+              <a class="nav-link">
+                <div class="rounded-circle dropleft" id="dropdownMenu" data-toggle="dropdown" aria-expanded="false">
+                    <img src="assets/images/user.jpg" alt="">
+                </div>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenu">
+                  <a class="dropdown-item" [routerLink]="['/personal-profile']">Profile</a>
+                  <a class="dropdown-item" (click)="logout()">Logout</a>
                 </div>
               </a>
             </li>

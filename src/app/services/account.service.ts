@@ -36,13 +36,7 @@ export class AccountService {
     return this.apiCaller.post<IUser>(this.baseUrl + 'login', user).pipe(
       map((res: IUser) => {
           if(res) {
-            localStorage.setItem('access_token', res.token);
-            localStorage.setItem('expirationDate', JSON.stringify(this.jwtHelper.getTokenExpirationDate(res.token)));
-            localStorage.setItem('user', JSON.stringify(res));
-            this.currentUserSource.next(res);
-            console.log(res);
-          } else {
-            console.log("what the fuck");
+            this.setCurrentUser(res);
           }
     }));
   }
@@ -50,14 +44,18 @@ export class AccountService {
   Register(user: IUser) {
     return this.apiCaller.post<IUser>(this.baseUrl + 'register', user).pipe(
       map(res => {
-          localStorage.setItem('access_token', res.token);
-          localStorage.setItem('expirationDate', JSON.stringify(this.jwtHelper.getTokenExpirationDate(res.token)));
-          localStorage.setItem('user', JSON.stringify(res));
-          this.currentUserSource.next(res);
-          console.log(res);
-    }));
+          this.setCurrentUser(res);
+        }
+      ));
   }
 
+  setCurrentUser(user: IUser) {
+    localStorage.setItem('access_token', user.token);
+    localStorage.setItem('expirationDate', JSON.stringify(this.jwtHelper.getTokenExpirationDate(user.token)));
+    localStorage.setItem('user', JSON.stringify(user));
+    this.currentUserSource.next(user);
+  }
+  
   public get loggedIn(): boolean{
     return localStorage.getItem('access_token') !==  null;
   }
@@ -65,6 +63,7 @@ export class AccountService {
   logout() {
     localStorage.removeItem("access_token");
     localStorage.removeItem("expirationDate");
+    localStorage.removeItem("user");
   }
   
   getExpiration() {

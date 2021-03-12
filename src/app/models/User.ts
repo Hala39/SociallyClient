@@ -7,7 +7,8 @@ export interface IUser {
     email?: string,
     password?: string,
     userName?: string,
-    token?: string
+    token?: string,
+    photoUrl?: string,
     education?: string,
     work?: string,
     bio?: string,

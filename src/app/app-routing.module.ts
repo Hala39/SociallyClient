@@ -1,7 +1,6 @@
 import { SuccessComponent } from './modules/misc/success/success.component';
 import { ServerErrorComponent } from './modules/misc/server-error/server-error.component';
 import { NotFoundComponent } from './modules/misc/not-found/not-found.component';
-import { AuthGuard } from './modules/account/auth.guard';
 import { RegisterComponent } from './modules/account/register/register.component';
 import { ChatComponent } from './modules/chat/chat/chat.component';
 import { ProfileComponent } from './modules/profile/profile/profile.component';
