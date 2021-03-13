@@ -45,12 +45,16 @@ export class PostComponent implements OnInit {
     this.userService.setMainPhoto(photo.id).subscribe(() => {
       this.user.photoUrl = photo.url;
       this.accountService.setCurrentUser(this.user);
+      this.user.photos.forEach(p => {
+        if (p.isMain) p.isMain = false;
+        if (p.id === photo.id) p.isMain = true;
+      })
     })
   } 
 
   deletePhoto(photoId: number) {
     this.userService.deletePhoto(photoId).subscribe(() => {
-      this.user.posts = this.user.posts.filter(x => x.photo.id !== photoId);
+      this.user.posts = this.user.posts.filter(x => x.photo.Id !== photoId);
     })
   }
 
