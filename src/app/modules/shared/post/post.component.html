@@ -16,13 +16,15 @@
             
                     <h6>Description</h6>
 
-                    <input type="text" class="form-control" style="border-radius: 5px;">
+                    <form [formGroup]="form">
+                        <input type="text" class="form-control" style="border-radius: 5px;" [formControl]="description">
+                    </form>                    
                     <div ng2FileDrop
-                         [ngClass]="{'nv-file-over': hasBaseDropzoneOver}"
-                         (fileOver)="fileOverBase($event)"
-                         [uploader]="uploader"
-                         class="card bg-faded p-3 text-center mb-3 mt-2 my-drop-zone">
-                         <i class="fa fa-upload fa-3x"></i>
+                        [ngClass]="{'nv-file-over': hasBaseDropzoneOver}"
+                        (fileOver)="fileOverBase($event)"
+                        [uploader]="uploader"
+                        class="card bg-faded p-3 text-center mb-3 mt-2 my-drop-zone">
+                        <fa-icon [icon]="faUpload" size="3x"></fa-icon>
                         Drop photo here
                     </div>
             

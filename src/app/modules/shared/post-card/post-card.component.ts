@@ -12,6 +12,7 @@ export class PostCardComponent implements OnInit {
 
   @Input() userName: string;
   @Input() myProfile: boolean;
+  @Input() posts: string[];
   constructor() { }
 
   ngOnInit(): void {

@@ -14,13 +14,12 @@
                         <fa-icon [icon]="faRss"></fa-icon>
                     </span>
                 </div>
-                <div class="col-md-2 col-5 d-flex justify-content-end">
-                    <app-post></app-post>
-                </div>
             </div>
             <div class="row mt-5">
                 <div class="col-md-9 col-12">
-                    <app-post-card></app-post-card>
+                    <app-post-card 
+                    [myProfile]="false"
+                    ></app-post-card>
                     <app-post-card></app-post-card>
                 </div>
             </div>

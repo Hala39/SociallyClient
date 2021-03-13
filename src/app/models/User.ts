@@ -1,3 +1,6 @@
+import { IPost } from './Post';
+import { IPhoto } from "./Photo";
+
 export interface IAuth {
     value: IUser,
     isSuccess: boolean,
@@ -9,14 +12,10 @@ export interface IUser {
     userName?: string,
     token?: string,
     photoUrl?: string,
+    coverUrl?: string,
     education?: string,
     work?: string,
     bio?: string,
     address?: string
-    photos?: IPhoto[]
-}
-export interface IPhoto {
-    id: number,
-    url: string,
-    isMain: boolean
+    posts?: IPost[]
 }

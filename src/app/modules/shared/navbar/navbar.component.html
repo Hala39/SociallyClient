@@ -42,7 +42,7 @@
             <li class="nav-item">
               <a class="nav-link">
                 <div class="rounded-circle dropleft" id="dropdownMenu" data-toggle="dropdown" aria-expanded="false">
-                    <img src="assets/images/user.jpg" alt="">
+                    <img [src]="user.photoUrl? user.photoUrl : 'assets/images/home/user-alt.png'" alt="">
                 </div>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenu">
                   <a class="dropdown-item" [routerLink]="['/personal-profile']">Profile</a>

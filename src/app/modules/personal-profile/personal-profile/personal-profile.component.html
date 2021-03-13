@@ -2,9 +2,14 @@
     <div class="row">
         <div class="col-md-3 col-0"></div>
         <div class="col-md-6 col-12 d-flex justify-content-center">
-            <img src="assets/images/cover.jpg" alt="" class="cover">
-            <div class="row justify-content-center" style="margin-top: 30%;">
-                <img src="assets/images/user.jpg" alt="" class="pp">
+            <img [src]="user.coverUrl? user.coverUrl : 'assets/images/home/blank-cover.png'" alt="" class="cover">
+            <div class="row justify-content-center container" style="margin-top: 30%;">
+                <img [src]="user.photoUrl? user.photoUrl : 'assets/images/home/user-alt.png'" alt="" class="pp">
+                <div class="middle center">
+                    <div class="text">
+                    hi
+                    </div>
+                </div>
             </div>
         </div>
         <div class="col-md-3 col-0"></div>
@@ -22,18 +27,28 @@
     <app-bio
     [myProfile]="true"
     [infos] = "[
-    { icon: faHouseUser, title: 'Address', text: user.address},
-    { icon: faGraduationCap, title: 'Education', text: user.education},
-    { icon: faBriefCase, title: 'Work', text: user.work},
-    { icon: faQuoteLeft, title: 'Bio', text: user.bio}
+    { icon: faHouseUser, title: 'Address', text: user.address? user.address : 'Where do you live?'},
+    { icon: faGraduationCap, title: 'Education', text: user.education? user.education : 'What about your education?'},
+    { icon: faBriefCase, title: 'Work', text: user.work? user.work : 'What is your current job?'},
+    { icon: faQuoteLeft, title: 'Bio', text: user.bio? user.bio : 'Tell us about yourself'}
     ]"
     ></app-bio>
 
     <div class="row d-flex justify-content-center pb-1">
         <app-post-card
+        *ngIf="posts"
         [userName]="user.userName"
         [myProfile]="true"
+        [posts] = "posts"
         ></app-post-card>
+    </div>
+    <div *ngIf="!posts">
+        <div class="row d-flex justify-content-center mt-5">
+            <img src="assets/images/home/camera.png" alt="">
+        </div>
+        <div class="row d-flex justify-content-center my-5 px-3">
+            <h5 class="purple">Start adding photos to your timeline!</h5>
+        </div>
     </div>
 </div>
 

@@ -1,19 +1,20 @@
-import { FileUploadModule } from 'ng2-file-upload';
-import { NgxSpinnerModule } from 'ngx-spinner';
-// import { ErrorInterceptor } from './interceptors/error.interceptor';
-import { AuthInterceptor } from './interceptors/auth.interceptor';
+import { CanLoadGuard } from './_guards/can-load.guard';
 import { RouterModule } from '@angular/router';
-import { AuthGuard } from './modules/account/auth.guard';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FeaturedModule } from './modules/featured/featured.module';
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule,  } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { JwtModule } from '@auth0/angular-jwt';
+
+import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { LoadingInterceptor } from './interceptors/loading.interceptor';
+import { ErrorInterceptor } from './interceptors/error.interceptor';
+import { ToastrModule } from 'ngx-toastr';
 
 
 export function tokenGetter() {
@@ -31,8 +32,10 @@ export function tokenGetter() {
     HttpClientModule,
     RouterModule,
     FeaturedModule,
-    NgxSpinnerModule,
-    FileUploadModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot({
+      positionClass: 'toast-bottom-right'
+    }),
     JwtModule.forRoot({
       config: {
         tokenGetter: tokenGetter,
@@ -44,8 +47,8 @@ export function tokenGetter() {
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},
     {provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true},
-    // {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true},
-    AuthGuard
+    {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true},
+    CanLoadGuard
   ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]

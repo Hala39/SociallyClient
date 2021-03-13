@@ -1,9 +1,9 @@
-<div class="card px-2 py-2 mb-5 shadow-sm">
+<div class="card px-2 py-2 mb-5 shadow-sm" *ngFor="let post of posts">
     <div class="row pt-1">
         <div class="col-6">
             <div class="row pl-2">
                 <div class="col-lg-1 col-4">
-                    <img src="assets/images/user.jpg" alt="" class="pp">
+                    <img [src]="user.photoUrl" alt="" class="pp">
                 </div>
                 <div class="col-lg-7 col-2">
                     <div class="row pt-2 ml-4">
@@ -12,7 +12,7 @@
                                <strong [innerText]="userName"></strong>
                             </div>
                             <div class="row time">
-                                @02:45 am
+                                {{post.date}}
                             </div>
                         </div>
                     </div>
@@ -29,12 +29,12 @@
     </div>
     <div class="row pt-3 px-4">
         <div class="col-12">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt officiis dicta odit repellendus dolor eos sapiente?
+            {{post.description}}
         </div>
     </div>
     <div class="row pt-2 px-2">
         <div class="col-12">
-            <img src="assets/images/user.jpg" alt="image" class="big-img">
+            <img [src]="post.photoUrl" class="big-img">
         </div>
     </div>
     <div class="row">

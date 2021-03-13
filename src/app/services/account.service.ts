@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
@@ -15,7 +16,7 @@ export class AccountService {
   private currentUserSource = new ReplaySubject<IUser>(1);
   currentUser$ = this.currentUserSource.asObservable();
 
-  constructor(private apiCaller: HttpClient, private jwtHelper: JwtHelperService) { }
+  constructor(private apiCaller: HttpClient, private jwtHelper: JwtHelperService, private router: Router) { }
 
   checkPassword(email: string, password: string) {
     let params = new HttpParams()
@@ -61,9 +62,8 @@ export class AccountService {
   }
 
   logout() {
-    localStorage.removeItem("access_token");
-    localStorage.removeItem("expirationDate");
-    localStorage.removeItem("user");
+    localStorage.clear();
+    this.router.navigateByUrl("/account");
   }
   
   getExpiration() {

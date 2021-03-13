@@ -13,7 +13,6 @@ export class BioComponent implements OnInit {
   
   @Input() myProfile: boolean;
   @Input() infos: [];
-  @Output() reload = new EventEmitter<boolean>();
 
   text: string;
   title: string;

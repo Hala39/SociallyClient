@@ -1,5 +1,3 @@
-import { Router } from '@angular/router';
-import { take } from 'rxjs/operators';
 import { IUser } from 'src/app/models/User';
 import { AccountService } from 'src/app/services/account.service';
 import { faSearch, faThumbtack } from '@fortawesome/free-solid-svg-icons';
@@ -20,15 +18,19 @@ export class NavbarComponent implements OnInit {
 
   user: IUser;
 
-  constructor(private accountService: AccountService, private router: Router) {
+  constructor(private accountService: AccountService) {
     
   }
 
   ngOnInit(): void {
+    this.loadUser();
+  }
+
+  loadUser() {
+    this.user = JSON.parse(localStorage.getItem("user"));
   }
 
   logout() {
     this.accountService.logout();
-    this.router.navigateByUrl("/account");
   }
 }

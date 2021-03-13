@@ -79,10 +79,8 @@ export class LoginComponent implements OnInit {
       password: this.password.value
     }
     if(this.form.valid) {
-      this.auth.Login(this.user).subscribe(res => {
-        console.log(res);
-      });
-      this.router.navigateByUrl('/feed');
+      this.auth.Login(this.user);
+      this.router.navigateByUrl('/');
     } else {
       this.Up();
     }

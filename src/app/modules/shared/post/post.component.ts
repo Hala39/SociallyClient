@@ -1,12 +1,15 @@
+import { PostService } from './../../../services/post.service';
+import { NewPost } from './../../../models/NewPost';
 import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { Component, Input, OnInit } from '@angular/core';
 import { faBan, faPlus, faTrash, faUpload } from '@fortawesome/free-solid-svg-icons';
 import { FileUploader } from 'ng2-file-upload';
 import { take } from 'rxjs/operators';
-import { IUser, IPhoto } from 'src/app/models/User';
+import { IUser } from 'src/app/models/User';
 import { AccountService } from 'src/app/services/account.service';
 import { UserService } from 'src/app/services/user.service';
 import { environment } from 'src/environments/environment';
+import { IPhoto } from 'src/app/models/Photo';
 
 @Component({
   selector: 'app-post',
@@ -25,7 +28,7 @@ export class PostComponent implements OnInit {
   baseUrl = environment.apiUrl;
   @Input() user: IUser;
 
-  constructor(private accountService: AccountService, private userService: UserService, private fb: FormBuilder) { 
+  constructor(private accountService: AccountService, private userService: UserService, private fb: FormBuilder, private postService: PostService) { 
     this.accountService.currentUser$.pipe(take(1)).subscribe(user => this.user = user);
   }
 
@@ -42,16 +45,12 @@ export class PostComponent implements OnInit {
     this.userService.setMainPhoto(photo.id).subscribe(() => {
       this.user.photoUrl = photo.url;
       this.accountService.setCurrentUser(this.user);
-      this.user.photos.forEach(p => {
-        if (p.isMain) p.isMain = false;
-        if (p.id === photo.id) p.isMain = true;
-      })
     })
   } 
 
   deletePhoto(photoId: number) {
     this.userService.deletePhoto(photoId).subscribe(() => {
-      this.user.photos = this.user.photos.filter(x => x.id !== photoId);
+      this.user.posts = this.user.posts.filter(x => x.photo.id !== photoId);
     })
   }
 
@@ -73,11 +72,13 @@ export class PostComponent implements OnInit {
     this.uploader.onSuccessItem = (item, response, status, headers) => {
       if (response) {
         const photo: IPhoto = JSON.parse(response);
-        this.user.photos.push(photo);
-         if (photo.isMain) {
-           this.user.photoUrl = photo.url;
-           this.accountService.setCurrentUser(this.user);
-         }
+          var post = new NewPost
+          {
+            post.description = this.description.value !== null? this.description.value : null,
+            post.photoId = photo.id
+          };
+
+        this.postService.addPost(post);
       }
     }
   }
